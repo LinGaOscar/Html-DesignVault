@@ -21,6 +21,7 @@ npx serve .
 - `http://localhost:8080/pages/boutique-brand/`
 - `http://localhost:8080/pages/space-scifi/`
 - `http://localhost:8080/pages/quill-landing/`
+- `http://localhost:8080/pages/glyphwave/`
 
 建議用本地伺服器而非雙擊開檔：「下載模板」功能由 `js/main.js` 以 `fetch` 抓取各 Demo 檔案，`file://` 下會失敗。
 

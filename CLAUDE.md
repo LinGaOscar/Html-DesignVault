@@ -40,11 +40,17 @@ DesignVault/
     │   ├── api-guide.js
     │   ├── index.html
     │   ├── rooms/ experiences/ book/ about/
-    └── quill-landing/
-        ├── custom.css                # Quill brand overrides
+    ├── quill-landing/
+    │   ├── custom.css                # Quill brand overrides
+    │   ├── api-guide.js
+    │   ├── index.html
+    │   ├── features/ pricing/ about/
+    └── glyphwave/
+        ├── custom.css                # GLYPHWAVE brand overrides
         ├── api-guide.js
+        ├── ascii-engine.js           # Three.js → ASCII renderer (ES module)
         ├── index.html
-        ├── features/ pricing/ about/
+        ├── playground/ about/
 ```
 
 Each demo's homepage loads `custom.css`; subpages load `../custom.css`.
@@ -86,6 +92,7 @@ Then visit `http://localhost:8080` for the landing page, or navigate directly to
 - `http://localhost:8080/pages/boutique-brand/`
 - `http://localhost:8080/pages/space-scifi/`
 - `http://localhost:8080/pages/quill-landing/`
+- `http://localhost:8080/pages/glyphwave/`
 
 ---
 
@@ -139,6 +146,7 @@ Each `custom.css` follows this order:
 - `boutique-brand`: `--au-bg: #faf9f7`, `--au-gold: #b8a898`, `--au-bg-alt: #f3f0eb`
 - `space-scifi`: `--nv-bg: #060b14`, `--nv-cyan: #00d4ff`, `--nv-surface: #0d1829`
 - `quill-landing`: `--ql-bg: #ffffff`, `--ql-teal: #0d9488`, `--ql-blue: #0ea5e9`
+- `glyphwave`: `--gw-bg: #05060a`, `--gw-cyan: #00e5ff`, `--gw-magenta: #ff2d95`
 
 ### Responsive Approach
 
@@ -153,6 +161,7 @@ Bootstrap's grid utilities (`col-12 col-md-X col-lg-X`, `row-cols-*`) handle lay
 | boutique-brand | Cormorant Garamond | Inter |
 | space-scifi | `'Courier New', 'Consolas', monospace` (no Google Fonts) | monospace |
 | quill-landing | Inter only | Inter |
+| glyphwave | `'Courier New', monospace` (no Google Fonts) | Segoe UI / monospace |
 
 ---
 
@@ -229,6 +238,19 @@ window.API_ENDPOINTS = [
 - `pricing/`: Bootstrap accordion FAQ with IDs `faq1`–`faq4`; first item open (`show`) by default
 - `.ql-editor-mock`: homepage hero editor mockup with `.mock-toolbar` and `.ql-ai-chip` floating chip
 
+### 6. GLYPHWAVE (`pages/glyphwave/`)
+
+- Brand: **GLYPHWAVE** · 2 subpages: playground, about
+- DesignVault back link class: `.designvault-back` (strip target for `cleanHtml()`)
+- Palette: `--gw-cyan: #00e5ff`, `--gw-magenta: #ff2d95`, near-black `--gw-bg: #05060a`
+- `ascii-engine.js`: ES module, Three.js (jsDelivr import) renders the 3D scene at
+  cols×rows pixel size, then Canvas 2D maps luminance → glyph characters (ASCII pipeline)
+- Hero `#ascii-host` is a full-bleed canvas; CRT scanlines via `.gw-hero::after`,
+  glitch title via `.gw-glitch::before/::after` with `data-text`
+- Navbar `fixed-top`; `.navbar-brand` has `margin-left: 135px` to clear the fixed back link
+- `playground/`: live controls (shape/ramp/color/cell/glitch/invert) via `engine.setOption()`
+- Engine reads/writes must go through `setOption()`; `cell`/`ramp` trigger `resize()`
+
 ### DesignVault back link classes (critical for `cleanHtml()`)
 
 | Demo | Class |
@@ -238,6 +260,7 @@ window.API_ENDPOINTS = [
 | boutique-brand | `.designvault-link` |
 | space-scifi | `.designvault-back` |
 | quill-landing | `.dv-bar` |
+| glyphwave | `.designvault-back` |
 
 `js/main.js` `cleanHtml()` removes elements with these classes before zipping for download. If you change a back link, update `cleanHtml()` to match.
 

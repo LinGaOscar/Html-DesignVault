@@ -1,0 +1,136 @@
+/* GLYPHWAVE — 賽博霓虹 · ASCII 生成藝術工作室 */
+:root {
+    --gw-bg: #05060a;
+    --gw-surface: #0b0e16;
+    --gw-line: #1c2333;
+    --gw-cyan: #00e5ff;
+    --gw-magenta: #ff2d95;
+    --gw-lime: #8cff78;
+    --gw-text: #c8d3e8;
+    --gw-muted: #6b7690;
+}
+
+body {
+    background: var(--gw-bg);
+    color: var(--gw-text);
+    font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
+}
+
+/* DesignVault 返回連結 */
+.designvault-back {
+    position: fixed; top: 10px; left: 12px; z-index: 1050;
+    font-size: 11px; letter-spacing: 1px; text-decoration: none;
+    color: var(--gw-muted); border: 1px solid var(--gw-line);
+    padding: 4px 10px; border-radius: 3px; background: rgba(5,6,10,.8);
+    font-family: "Courier New", monospace;
+}
+.designvault-back:hover { color: var(--gw-cyan); border-color: var(--gw-cyan); }
+
+/* Navbar */
+.navbar { background: rgba(5,6,10,.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gw-line); }
+.navbar-brand { font-family: "Courier New", monospace; font-weight: 700; color: #fff !important; letter-spacing: 2px; margin-left: 135px; }
+.navbar-brand .brand-bolt { color: var(--gw-cyan); }
+.nav-link { color: var(--gw-muted) !important; font-size: .9rem; letter-spacing: .5px; }
+.nav-link:hover, .nav-link.active { color: var(--gw-cyan) !important; }
+
+/* ---- Hero：ASCII canvas 背景 ---- */
+.gw-hero {
+    position: relative; min-height: 92vh; display: flex; align-items: center;
+    padding-top: 90px; overflow: hidden;
+}
+#ascii-host { position: absolute; inset: 0; }
+#ascii-host canvas { display: block; width: 100%; height: 100%; }
+/* 霓虹暈光 + 輕微色散 */
+#ascii-host canvas { filter: drop-shadow(0 0 5px rgba(0,229,255,.28)) saturate(1.25) contrast(1.05); }
+/* CRT 掃描線疊加 */
+.gw-hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 4px);
+    mix-blend-mode: multiply;
+}
+/* 中央漸層讓文案可讀 */
+.gw-hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(ellipse at 30% 45%, rgba(5,6,10,.88) 0%, rgba(5,6,10,.45) 45%, rgba(5,6,10,.15) 100%);
+}
+.gw-hero > .container { z-index: 3; }
+
+.gw-label {
+    font-family: "Courier New", monospace; font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gw-cyan);
+}
+.live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--gw-lime); box-shadow: 0 0 8px var(--gw-lime); animation: gw-blink 1.6s infinite; }
+@keyframes gw-blink { 50% { opacity: .35; } }
+
+.gw-hero-title {
+    font-size: clamp(2.2rem, 5.2vw, 3.8rem); font-weight: 700; color: #fff;
+    line-height: 1.18; letter-spacing: 1px;
+}
+.gw-hero-title .line2 {
+    font-family: "Courier New", monospace; font-size: .48em; letter-spacing: 4px;
+    color: var(--gw-cyan); text-shadow: 0 0 14px rgba(0,229,255,.5);
+}
+/* glitch 標題：偽元素色散抖動 */
+.gw-glitch { position: relative; display: inline-block; }
+.gw-glitch::before, .gw-glitch::after {
+    content: attr(data-text); position: absolute; inset: 0; opacity: 0; pointer-events: none;
+}
+.gw-glitch::before { color: var(--gw-magenta); animation: gw-gl1 3.2s steps(1) infinite; }
+.gw-glitch::after  { color: var(--gw-cyan);   animation: gw-gl2 2.7s steps(1) infinite; }
+@keyframes gw-gl1 { 0%,91%,100% { opacity: 0; } 92% { opacity: .8; transform: translate(-3px,1px);} 95% { opacity: .8; transform: translate(2px,-2px);} 97% { opacity: 0; } }
+@keyframes gw-gl2 { 0%,88%,100% { opacity: 0; } 89% { opacity: .7; transform: translate(3px,-1px);} 93% { opacity: .7; transform: translate(-2px,2px);} 96% { opacity: 0; } }
+
+/* 按鈕 */
+.btn-gw {
+    display: inline-block; padding: 11px 26px; background: var(--gw-cyan); color: #041016;
+    font-weight: 700; text-decoration: none; border-radius: 2px; font-size: .95rem;
+    box-shadow: 0 0 18px rgba(0,229,255,.45); transition: .2s; border: 1px solid var(--gw-cyan);
+}
+.btn-gw:hover { background: transparent; color: var(--gw-cyan); box-shadow: 0 0 24px rgba(0,229,255,.35); }
+.btn-gw-outline {
+    display: inline-block; padding: 11px 26px; background: transparent; color: var(--gw-text);
+    text-decoration: none; border-radius: 2px; font-size: .95rem; border: 1px solid var(--gw-line); transition: .2s;
+}
+.btn-gw-outline:hover { border-color: var(--gw-magenta); color: var(--gw-magenta); box-shadow: 0 0 18px rgba(255,45,149,.3); }
+
+/* 區塊 */
+.gw-section { padding: 72px 0; }
+.gw-section.alt { background: var(--gw-surface); border-top: 1px solid var(--gw-line); border-bottom: 1px solid var(--gw-line); }
+.section-title { color: #fff; font-weight: 600; }
+
+.gw-card {
+    background: var(--gw-bg); border: 1px solid var(--gw-line); border-radius: 4px;
+    padding: 26px; height: 100%; transition: .25s;
+}
+.gw-card:hover { border-color: var(--gw-cyan); box-shadow: 0 0 24px rgba(0,229,255,.12); transform: translateY(-3px); }
+.gw-card .icon { font-family: "Courier New", monospace; font-size: 1.5rem; color: var(--gw-cyan); }
+.gw-card h3 { font-size: 1.05rem; color: #fff; }
+.gw-card p { color: var(--gw-muted); font-size: .875rem; line-height: 1.8; }
+
+/* 字元梯度展示 */
+.ramp-box {
+    font-family: "Courier New", monospace; font-size: 13px; line-height: 1.6;
+    color: var(--gw-lime); background: #000; border: 1px solid var(--gw-line);
+    border-radius: 4px; padding: 16px 20px; overflow-x: auto; white-space: pre;
+}
+
+/* Playground */
+.gw-lab { display: grid; grid-template-columns: 1fr 320px; gap: 0; min-height: 100vh; }
+.gw-lab-stage { position: relative; overflow: hidden; border-right: 1px solid var(--gw-line); }
+.gw-lab-stage canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.gw-lab-panel { padding: 26px 22px 80px; overflow-y: auto; max-height: 100vh; }
+.gw-lab-panel label { font-family: "Courier New", monospace; font-size: 12px; letter-spacing: 1.5px; color: var(--gw-cyan); text-transform: uppercase; }
+.form-range-cyan { accent-color: var(--gw-cyan); }
+.form-select-gw, .form-select-gw:focus {
+    background: var(--gw-bg); color: var(--gw-text); border: 1px solid var(--gw-line); border-radius: 3px;
+}
+.form-check-input { accent-color: var(--gw-magenta); }
+
+/* 頁尾 */
+.gw-footer { border-top: 1px solid var(--gw-line); padding: 28px 0; color: var(--gw-muted); font-size: .8rem; font-family: "Courier New", monospace; }
+
+@media (max-width: 991.98px) {
+    .gw-lab { grid-template-columns: 1fr; }
+    .gw-lab-stage { min-height: 56vh; }
+    .gw-lab-panel { max-height: none; }
+}

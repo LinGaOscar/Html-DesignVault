@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實驗場 — GLYPHWAVE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../custom.css">
+</head>
+<body>
+
+    <a href="../../../index.html" class="designvault-back">← DesignVault</a>
+
+    <div class="gw-lab">
+        <div class="gw-lab-stage" id="stage">
+            <div class="position-absolute top-0 start-0 p-3" style="z-index:5;margin-left:135px;">
+                <a href="../" class="gw-label text-decoration-none">GLYPH⌁WAVE</a>
+                <span class="gw-label ms-3" style="color:var(--gw-muted);">/ 實驗場</span>
+            </div>
+        </div>
+
+        <aside class="gw-lab-panel">
+            <h1 class="h5 mb-1" style="color:#fff;">即時參數</h1>
+            <p class="small mb-4" style="color:var(--gw-muted);">所有參數即時生效，無須重新整理。滑鼠在左側畫面上移動可改變視角。</p>
+
+            <div class="mb-4">
+                <label class="form-label">形状 SHAPE</label>
+                <select id="opt-shape" class="form-select form-select-sm form-select-gw">
+                    <option value="knot" selected>環面結 TorusKnot</option>
+                    <option value="sphere">多面球 Icosahedron</option>
+                    <option value="torus">圓環 Torus</option>
+                    <option value="diamond">钻石 Octahedron</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">字元集 RAMP</label>
+                <select id="opt-ramp" class="form-select form-select-sm form-select-gw">
+                    <option value="digitanks" selected>digitanks（70 級）</option>
+                    <option value="minimal">minimal（10 級）</option>
+                    <option value="blocks">blocks 方塊（5 級）</option>
+                    <option value="katakana">片假名片段</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">配色 COLOR</label>
+                <select id="opt-color" class="form-select form-select-sm form-select-gw">
+                    <option value="neon" selected>neon（3D 法線色）</option>
+                    <option value="duo">duo（洋紅→青）</option>
+                    <option value="mono">mono（單色青）</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">格子大小 CELL <span id="cell-val">8</span>px</label>
+                <input type="range" class="form-range form-range-cyan" id="opt-cell" min="5" max="16" step="1" value="8">
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">GLITCH 強度 <span id="glitch-val">0.35</span></label>
+                <input type="range" class="form-range form-range-cyan" id="opt-glitch" min="0" max="1" step="0.05" value="0.35">
+            </div>
+
+            <div class="form-check form-switch mb-5">
+                <input class="form-check-input" type="checkbox" id="opt-invert">
+                <label class="form-check-label small" for="opt-invert" style="color:var(--gw-text);">反相 INVERT（圖文負片）</label>
+            </div>
+
+            <p class="small mb-0" style="color:var(--gw-muted);font-family:'Courier New',monospace;">
+                ⌁ 渲染成本 = 字元格數，與視窗大小無關。<br>
+                CELL 越小 → 解析度越高 → 填滿的字元越多。
+            </p>
+        </aside>
+    </div>
+
+    <script>
+    window.API_ENDPOINTS = [
+      { method: 'GET',   path: '/api/render/presets' },
+      { method: 'POST',  path: '/api/render/jobs' },
+    ];
+    </script>
+    <script src="../api-guide.js"></script>
+    <script type="module">
+    import { AsciiEngine } from '../ascii-engine.js';
+    const stage = document.getElementById('stage');
+    const canvas = document.createElement('canvas');
+    stage.appendChild(canvas);
+    const engine = new AsciiEngine(canvas, { cell: 8, glitch: 0.35, fps: 30 });
+    engine.start();
+
+    const bind = (id, key, isNum = false) => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        let v = el.value;
+        if (isNum) v = Number(v);
+        engine.setOption(key, v);
+        const out = document.getElementById(id.replace('opt-', '') + '-val');
+        if (out) out.textContent = v;
+      });
+    };
+    bind('opt-shape', 'shape');
+    bind('opt-ramp', 'ramp');
+    bind('opt-color', 'color');
+    bind('opt-cell', 'cell', true);
+    bind('opt-glitch', 'glitch', true);
+    document.getElementById('opt-invert').addEventListener('change', (e) => {
+      engine.setOption('invert', e.target.checked);
+    });
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!-- 本檔由 /sync-docs 自動生成，請勿手動編輯——手改內容下次會被覆蓋。 -->
 # DesignVault
 
-精選網頁設計作品展示 — 純靜態前端作品集，包含五個網頁設計 Demo，無任何框架或建置流程。
+精選網頁設計作品展示 — 純靜態前端作品集，包含六個網頁設計 Demo，無任何框架或建置流程。
 
 ![系統畫面](docs/screenshot.png)
 
@@ -14,11 +14,13 @@
 | [Boutique Brand](pages/boutique-brand/) | AURÈLE | 極簡奢華品牌形象 |
 | [Space Hotel](pages/space-scifi/) | ORBITAL | 太空主題豪華飯店 |
 | [AI Writing Tool](pages/quill-landing/) | Quill | SaaS 行銷落地頁 |
+| [ASCII Art Studio](pages/glyphwave/) | GLYPHWAVE | 賽博霓虹，文字影像生成 |
 
 ## 技術棧
 
 - HTML5 / CSS3 / Vanilla JavaScript（無框架、無套件管理器）
 - Bootstrap 5.3.3（CDN）
+- Three.js 0.161（CDN，僅 glyphwave Demo 使用）
 - Google Fonts（各 Demo 各自載入）
 - 首頁「下載模板」以 JSZip 在瀏覽器端打包；各 Demo 內建 `api-guide.js` 列出預期串接的 API endpoints
 - 部署：GitHub Pages（`.github/workflows/deploy.yml`）

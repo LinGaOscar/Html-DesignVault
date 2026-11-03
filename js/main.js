@@ -84,6 +84,17 @@ const DEMOS = {
       ['pages/quill-landing/pricing/index.html',    'pricing/index.html'],
       ['pages/quill-landing/about/index.html',      'about/index.html'],
     ]
+  },
+  'glyphwave': {
+    folder: 'glyphwave-template',
+    files: [
+      ['pages/glyphwave/custom.css',              'custom.css'],
+      ['pages/glyphwave/api-guide.js',            'api-guide.js'],
+      ['pages/glyphwave/ascii-engine.js',         'ascii-engine.js'],
+      ['pages/glyphwave/index.html',              'index.html'],
+      ['pages/glyphwave/playground/index.html',   'playground/index.html'],
+      ['pages/glyphwave/about/index.html',        'about/index.html'],
+    ]
   }
 };
 
