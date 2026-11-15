@@ -21,9 +21,6 @@
 .nav-link { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--mn-text) !important; }
 .nav-link:hover { color: var(--mn-gold) !important; }
 
-/* DesignVault back bar */
-.dv-bar { background: #f5f2ee; padding: 8px 0; font-size: 0.7rem; }
-.dv-bar a { color: #999; text-decoration: none; letter-spacing: 0.5px; }
 
 /* Back to demo link */
 .back-bar { background: var(--mn-bg); padding: 10px 0; border-bottom: 1px solid var(--mn-border); font-size: 0.75rem; }
@@ -77,3 +74,25 @@
 /* Page header for subpages */
 .page-header { border-bottom: 1px solid var(--mn-border); padding: 48px 0 32px; }
 .page-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; }
+
+/* DesignVault 返回連結 — 固定於左下角 */
+.dv-back {
+    position: fixed; left: 16px; bottom: 16px; z-index: 1100;
+    padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; line-height: 1;
+    color: #777; background: var(--mn-bg); border: 1px solid var(--mn-border); border-radius: 0;
+    text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.dv-back:hover { color: var(--mn-text); border-color: var(--mn-text); }
+
+/* Inline SVG icons */
+.ui-icon { vertical-align: -0.125em; flex-shrink: 0; }
+
+/* Editorial monochrome treatment for photography */
+.mn-hero-img img, .product-img img, .category-img img { filter: grayscale(1) contrast(1.05); }
+.category-img { position: relative; overflow: hidden; }
+.category-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product-img { background: #ece4d9; }
+.product-card:hover .product-img img { filter: none; }
+.product-img img { transition: filter 0.4s; }
+a.btn-mn, a.btn-mn-outline { display: inline-block; text-decoration: none; }
+.mn-cta .text-muted { color: rgba(255,255,255,0.6) !important; }

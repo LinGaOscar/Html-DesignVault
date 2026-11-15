@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="custom.css">
 </head>
 <body>
+    <a href="../../index.html" class="dv-back">← DesignVault</a>
 
-    <a href="../../index.html" class="designvault-back">← DesignVault</a>
 
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
         <div class="container">
@@ -32,14 +32,14 @@
         <div id="ascii-host"></div>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-lg-6">
                     <p class="gw-label mb-3"><span class="live-dot me-2"></span>GLYPHWAVE STUDIO · REAL-TIME ASCII RENDERER</p>
                     <h1 class="gw-hero-title mb-4">
                         <span class="gw-glitch" data-text="用文字重建世界">用文字重建世界</span><br>
                         <span class="line2">EVERY IMAGE IS MADE OF CHARACTERS</span>
                     </h1>
-                    <p class="mb-4" style="color:var(--gw-muted);font-size:0.9rem;line-height:1.9;">
-                        背景不是圖檔，是 Three.js 即時渲染的 3D 幾何體，再依亮度把每個像素翻譯成字元。<br>
+                    <p class="gw-hero-copy mb-4" style="color:var(--gw-text);font-size:0.9rem;line-height:1.9;">
+                        背景不是圖檔，是 Three.js 即時渲染的 3D 幾何體，再依亮度把每個像素翻譯成字元。
                         移動滑鼠改變視角，glitch 帶會隨機竄過畫面——整個畫面都是運算出來的。
                     </p>
                     <div class="d-flex gap-3 flex-wrap">
@@ -99,29 +99,19 @@
     <!-- 資料串接 CTA -->
     <section class="gw-section">
         <div class="container text-center">
-            <p class="gw-label mb-2">INTEGRATION</p>
-            <h2 class="section-title h4 mb-3">把它接進你的系統</h2>
+            <p class="gw-label mb-2">PLAYGROUND</p>
+            <h2 class="section-title h4 mb-3">親手調整每一個參數</h2>
             <p class="mx-auto mb-4" style="max-width:560px;color:var(--gw-muted);font-size:.9rem;line-height:1.9;">
-                本页標示了 4 個可對接的 API 端點（底部工具列查看）：渲染任務派發、參數預存、字元集上傳——
-                前台純靜態，後端換成你們的渲染農場即可。
+                切換幾何形狀、字元梯度與配色，調整格數與 glitch 強度——所有變化即時反映在畫面上。
             </p>
             <a href="playground/" class="btn-gw">開啟即時參數實驗場 →</a>
         </div>
     </section>
 
     <footer class="gw-footer text-center">
-        GLYPH⌁WAVE — 純前端概念模板 · Three.js + Canvas 2D · 無框架無建置
+        GLYPH⌁WAVE — 純前端概念作品 · Three.js + Canvas 2D · 無框架無建置
     </footer>
 
-    <script>
-    window.API_ENDPOINTS = [
-      { method: 'POST',   path: '/api/render/jobs' },
-      { method: 'GET',    path: '/api/render/jobs/{id}' },
-      { method: 'GET',    path: '/api/render/presets' },
-      { method: 'PATCH',  path: '/api/render/presets/{id}' },
-    ];
-    </script>
-    <script src="api-guide.js"></script>
     <script type="module">
     import { AsciiEngine } from './ascii-engine.js';
     const host = document.getElementById('ascii-host');

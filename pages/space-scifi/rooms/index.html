@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../custom.css">
 </head>
 <body>
-    <a href="../../../index.html" class="designvault-back">← DesignVault</a>
+    <a href="../../../index.html" class="dv-back">← DesignVault</a>
 
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
         <div class="container">
@@ -41,7 +41,7 @@
             <!-- Standard Pod -->
             <div class="row g-4 align-items-center mb-5 pb-5" style="border-bottom:1px solid var(--nv-border);">
                 <div class="col-12 col-md-5">
-                    <div class="card p-5 text-center border-glow" style="font-size:5rem;line-height:1;">🛸</div>
+                    <div class="nv-room-visual border-glow"><img src="../images/room-1.svg" alt=""></div>
                 </div>
                 <div class="col-12 col-md-7">
                     <p class="section-label mb-1">Standard</p>
@@ -63,7 +63,7 @@
             <!-- Observatory Suite -->
             <div class="row g-4 align-items-center mb-5 pb-5" style="border-bottom:1px solid var(--nv-border);">
                 <div class="col-12 col-md-5 order-md-2">
-                    <div class="card p-5 text-center border-glow" style="font-size:5rem;line-height:1;">🌌</div>
+                    <div class="nv-room-visual border-glow"><img src="../images/room-2.svg" alt=""></div>
                 </div>
                 <div class="col-12 col-md-7 order-md-1">
                     <p class="section-label mb-1">Premium</p>
@@ -85,7 +85,7 @@
             <!-- Executive Sphere -->
             <div class="row g-4 align-items-center">
                 <div class="col-12 col-md-5">
-                    <div class="card p-5 text-center border-glow" style="font-size:5rem;line-height:1;">⭐</div>
+                    <div class="nv-room-visual border-glow"><img src="../images/room-3.svg" alt=""></div>
                 </div>
                 <div class="col-12 col-md-7">
                     <p class="section-label mb-1">Executive</p>
@@ -114,11 +114,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    window.API_ENDPOINTS = [
-      { method: 'GET', path: '/api/rooms' },
-    ];
-    </script>
-    <script src="../api-guide.js"></script>
 </body>
 </html>

@@ -16,19 +16,10 @@ body {
     font-family: "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
 }
 
-/* DesignVault 返回連結 */
-.designvault-back {
-    position: fixed; top: 10px; left: 12px; z-index: 1050;
-    font-size: 11px; letter-spacing: 1px; text-decoration: none;
-    color: var(--gw-muted); border: 1px solid var(--gw-line);
-    padding: 4px 10px; border-radius: 3px; background: rgba(5,6,10,.8);
-    font-family: "Courier New", monospace;
-}
-.designvault-back:hover { color: var(--gw-cyan); border-color: var(--gw-cyan); }
 
 /* Navbar */
 .navbar { background: rgba(5,6,10,.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gw-line); }
-.navbar-brand { font-family: "Courier New", monospace; font-weight: 700; color: #fff !important; letter-spacing: 2px; margin-left: 135px; }
+.navbar-brand { font-family: "Courier New", monospace; font-weight: 700; color: #fff !important; letter-spacing: 2px; }
 .navbar-brand .brand-bolt { color: var(--gw-cyan); }
 .nav-link { color: var(--gw-muted) !important; font-size: .9rem; letter-spacing: .5px; }
 .nav-link:hover, .nav-link.active { color: var(--gw-cyan) !important; }
@@ -51,7 +42,7 @@ body {
 /* 中央漸層讓文案可讀 */
 .gw-hero::before {
     content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-    background: radial-gradient(ellipse at 30% 45%, rgba(5,6,10,.88) 0%, rgba(5,6,10,.45) 45%, rgba(5,6,10,.15) 100%);
+    background: linear-gradient(90deg, rgba(5,6,10,.94) 0%, rgba(5,6,10,.82) 38%, rgba(5,6,10,.2) 62%, rgba(5,6,10,0) 100%);
 }
 .gw-hero > .container { z-index: 3; }
 
@@ -133,4 +124,24 @@ body {
     .gw-lab { grid-template-columns: 1fr; }
     .gw-lab-stage { min-height: 56vh; }
     .gw-lab-panel { max-height: none; }
+}
+
+/* DesignVault 返回連結 — 固定於左下角 */
+.dv-back {
+    position: fixed; left: 16px; bottom: 16px; z-index: 1100;
+    padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; line-height: 1; font-family: "Courier New", monospace;
+    color: var(--gw-muted); background: var(--gw-surface); border: 1px solid var(--gw-line); border-radius: 0;
+    text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.dv-back:hover { color: var(--gw-cyan); border-color: var(--gw-cyan); }
+
+/* Inline SVG icons */
+.ui-icon { vertical-align: -0.125em; flex-shrink: 0; }
+
+/* Hero copy stays inside the darkened left column; long ramps wrap */
+.gw-hero-title .line2 { display: inline-block; line-height: 1.6; margin-top: .4em; }
+.gw-hero-copy { max-width: 460px; }
+.ramp-box { overflow-wrap: anywhere; }
+@media (max-width: 991px) {
+    .gw-hero::before { background: rgba(5,6,10,.78); }
 }

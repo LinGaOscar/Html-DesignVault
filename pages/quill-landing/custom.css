@@ -14,18 +14,6 @@
   --bs-body-font-family: 'Inter', sans-serif;
 }
 
-/* DesignVault 返回列 */
-.dv-bar {
-  display: block;
-  background: #0f172a;
-  color: #94a3b8;
-  text-align: center;
-  padding: 6px;
-  font-size: 0.75rem;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-}
-.dv-bar:hover { color: #fff; }
 
 /* Navbar */
 .ql-navbar { background: #fff; border-bottom: 1px solid var(--ql-border); }
@@ -242,3 +230,17 @@
   .ql-section-dark { padding: 3rem 0; }
   .ql-page-header { padding: 3rem 0 2rem; }
 }
+
+/* DesignVault 返回連結 — 固定於左下角 */
+.dv-back {
+    position: fixed; left: 16px; bottom: 16px; z-index: 1100;
+    padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; line-height: 1;
+    color: var(--ql-muted); background: var(--ql-bg); border: 1px solid var(--ql-border); border-radius: 999px;
+    text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.dv-back:hover { color: var(--ql-teal); border-color: var(--ql-teal); }
+
+/* Inline SVG icons */
+.ui-icon { vertical-align: -0.125em; flex-shrink: 0; }
+
+.feature-card .ui-icon { color: var(--ql-teal); }

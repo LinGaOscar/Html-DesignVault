@@ -22,14 +22,6 @@
 
 body { background: var(--nv-bg); color: var(--nv-text); }
 
-/* DesignVault 返回連結 — 固定於左上角 */
-.designvault-back {
-    position: fixed; top: 12px; left: 12px; z-index: 1100;
-    font-size: 0.65rem; color: var(--nv-muted); text-decoration: none;
-    letter-spacing: 1px; font-family: monospace;
-    padding: 4px 8px; border: 1px solid rgba(0,212,255,0.2);
-}
-.designvault-back:hover { color: var(--nv-cyan); border-color: var(--nv-cyan); }
 
 /* Navbar */
 .navbar { background: rgba(6,11,20,0.95) !important; border-bottom: 1px solid var(--nv-border); backdrop-filter: blur(8px); }
@@ -113,3 +105,20 @@ body { background: var(--nv-bg); color: var(--nv-text); }
 .nav-tabs .nav-link { color: var(--nv-muted); border-color: transparent; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
 .nav-tabs .nav-link:hover { color: var(--nv-cyan); border-color: transparent; }
 .nav-tabs .nav-link.active { background: transparent; border-color: var(--nv-border) var(--nv-border) var(--nv-bg); color: var(--nv-cyan); }
+
+/* DesignVault 返回連結 — 固定於左下角 */
+.dv-back {
+    position: fixed; left: 16px; bottom: 16px; z-index: 1100;
+    padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; line-height: 1;
+    color: var(--nv-muted); background: var(--nv-surface); border: 1px solid var(--nv-border); border-radius: 4px;
+    text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.dv-back:hover { color: var(--nv-cyan); border-color: var(--nv-cyan); }
+
+/* Inline SVG icons */
+.ui-icon { vertical-align: -0.125em; flex-shrink: 0; }
+
+.table { --bs-table-color: var(--nv-text); --bs-table-bg: transparent; --bs-table-border-color: var(--nv-border); }
+.card .ui-icon { color: var(--nv-cyan); }
+.nv-room-visual { border: 1px solid var(--nv-border); border-radius: var(--bs-border-radius); overflow: hidden; aspect-ratio: 16/9; }
+.nv-room-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
