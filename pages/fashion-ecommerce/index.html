@@ -11,13 +11,8 @@
     <link rel="stylesheet" href="custom.css">
 </head>
 <body>
+    <a href="../../index.html" class="dv-back">← DesignVault</a>
 
-    <!-- DesignVault back bar (will be stripped in download) -->
-    <div class="dv-bar">
-        <div class="container">
-            <a href="../../index.html">← DesignVault</a>
-        </div>
-    </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -65,21 +60,21 @@
             <div class="row g-3">
                 <div class="col-12 col-md-4">
                     <a href="womens/" class="d-block text-decoration-none text-dark category-card">
-                        <div class="category-img mb-3">👗</div>
+                        <div class="category-img mb-3"><img src="images/product-2.jpg" alt="" loading="lazy"></div>
                         <p class="product-name text-uppercase mb-1">女裝</p>
                         <p class="small text-muted mb-0">128 件商品</p>
                     </a>
                 </div>
                 <div class="col-12 col-md-4">
                     <a href="mens/" class="d-block text-decoration-none text-dark category-card">
-                        <div class="category-img mb-3">🧥</div>
+                        <div class="category-img mb-3"><img src="images/product-7.jpg" alt="" loading="lazy"></div>
                         <p class="product-name text-uppercase mb-1">男裝</p>
                         <p class="small text-muted mb-0">96 件商品</p>
                     </a>
                 </div>
                 <div class="col-12 col-md-4">
                     <a href="accessories/" class="d-block text-decoration-none text-dark category-card">
-                        <div class="category-img mb-3">👜</div>
+                        <div class="category-img mb-3"><img src="images/product-4.jpg" alt="" loading="lazy"></div>
                         <p class="product-name text-uppercase mb-1">配件</p>
                         <p class="small text-muted mb-0">64 件商品</p>
                     </a>
@@ -155,12 +150,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    window.API_ENDPOINTS = [
-      { method: 'GET', path: '/api/products/featured' },
-      { method: 'GET', path: '/api/categories' },
-    ];
-    </script>
-    <script src="api-guide.js"></script>
 </body>
 </html>

@@ -15,13 +15,6 @@
     --bs-body-font-weight: 300;
 }
 
-/* DesignVault back link */
-.designvault-link {
-    position: fixed; top: 12px; left: 16px; z-index: 1100;
-    font-size: 0.65rem; letter-spacing: 0.5px; color: #bbb;
-    text-decoration: none; font-weight: 300;
-}
-.designvault-link:hover { color: var(--au-text); }
 
 /* Subpage back link */
 .back-link { font-size: 0.75rem; color: var(--au-muted); text-decoration: none; letter-spacing: 0.5px; }
@@ -49,7 +42,7 @@
 
 /* Collection cards */
 .collection-card { overflow: hidden; }
-.collection-img { aspect-ratio: 3/4; overflow: hidden; position: relative; transition: transform 0.4s; }
+.collection-img { aspect-ratio: 3/4; overflow: hidden; position: relative; transition: transform 0.4s; background: var(--au-bg-alt); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--au-gold); }
 .collection-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .collection-card:hover .collection-img { transform: scale(1.04); }
 .collection-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; letter-spacing: 1px; }
@@ -90,3 +83,15 @@
 
 /* Page header for subpages */
 .au-page-header { padding: 120px 0 48px; }
+
+/* DesignVault 返回連結 — 固定於左下角 */
+.dv-back {
+    position: fixed; left: 16px; bottom: 16px; z-index: 1100;
+    padding: 8px 14px; font-size: 0.7rem; letter-spacing: 0.5px; line-height: 1;
+    color: var(--au-muted); background: var(--au-bg); border: 1px solid var(--au-border); border-radius: 0;
+    text-decoration: none; transition: color 0.2s, border-color 0.2s;
+}
+.dv-back:hover { color: var(--au-text); border-color: var(--au-text); }
+
+/* Inline SVG icons */
+.ui-icon { vertical-align: -0.125em; flex-shrink: 0; }

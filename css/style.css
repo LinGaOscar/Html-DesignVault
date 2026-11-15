@@ -104,7 +104,6 @@ a { text-decoration: none; color: inherit; }
 /* Buttons */
 .btn { letter-spacing: 0.8px; font-size: 0.7rem; padding: 10px 0; }
 .dv-btn-lg { padding: 13px 30px; font-size: 0.78rem; }
-.btn-dl:disabled { opacity: 0.45; cursor: default; }
 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }

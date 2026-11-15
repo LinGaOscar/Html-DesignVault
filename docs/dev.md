@@ -23,7 +23,7 @@ npx serve .
 - `http://localhost:8080/pages/quill-landing/`
 - `http://localhost:8080/pages/glyphwave/`
 
-建議用本地伺服器而非雙擊開檔：「下載模板」功能由 `js/main.js` 以 `fetch` 抓取各 Demo 檔案，`file://` 下會失敗。
+建議用本地伺服器而非雙擊開檔，相對路徑與字型載入才會與線上一致。
 
 ## 測試
 
@@ -35,6 +35,6 @@ push 到 `main` 會觸發 `.github/workflows/deploy.yml`，以 `actions/deploy-p
 
 ## 修改時的提醒
 
-- 改 `css/style.css` 或 `js/main.js` 後，同步更新 `index.html` 內對應的 `?v=` 版本字串（cache busting）。
+- 改 `css/style.css` 後，同步更新 `index.html` 內對應的 `?v=` 版本字串（cache busting）。
 - 各 Demo 的品牌色彩／間距集中在該 Demo 的 `custom.css` `:root`，優先改變數。
 - 更完整的架構與慣例見 `CLAUDE.md`。

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview (DesignVault)
 
-DesignVault is a **static front-end portfolio** showcasing five web design demos. There is no build process, no backend, and no package manager. Pages use **Bootstrap 5.3.3** (loaded via CDN) plus a per-demo `custom.css` for brand-specific overrides.
+DesignVault is a **static front-end portfolio** showcasing six web design demos. There is no build process, no backend, and no package manager. Pages use **Bootstrap 5.3.3** (loaded via CDN) plus a per-demo `custom.css` for brand-specific overrides.
 
 The Chinese tagline "精選網頁設計作品展示" means "Premium Web Design Portfolio Showcase".
 
@@ -17,37 +17,29 @@ DesignVault/
 ├── index.html                        # Portfolio landing — hero, works grid, approach, stack, CTA
 ├── css/
 │   └── style.css                     # Global styles for index.html only
-├── js/
-│   └── main.js                       # Download-ZIP logic + cleanHtml() strips DV navigation
 └── pages/
     ├── fashion-ecommerce/
     │   ├── custom.css                # MAISON NOIR brand overrides
-    │   ├── api-guide.js              # API toolbar (see below)
     │   ├── index.html
     │   ├── womens/ mens/ accessories/ about/
     ├── saas-dashboard/
     │   ├── custom.css                # NexusFlow Enterprise brand overrides
-    │   ├── api-guide.js
     │   ├── index.html
     │   ├── analytics/ users/ orders/ settings/
     ├── boutique-brand/
     │   ├── custom.css                # AURÈLE brand overrides
-    │   ├── api-guide.js
     │   ├── index.html
     │   ├── story/ collections/ works/ contact/
     ├── space-scifi/
     │   ├── custom.css                # ORBITAL brand overrides
-    │   ├── api-guide.js
     │   ├── index.html
     │   ├── rooms/ experiences/ book/ about/
     ├── quill-landing/
     │   ├── custom.css                # Quill brand overrides
-    │   ├── api-guide.js
     │   ├── index.html
     │   ├── features/ pricing/ about/
     └── glyphwave/
         ├── custom.css                # GLYPHWAVE brand overrides
-        ├── api-guide.js
         ├── ascii-engine.js           # Three.js → ASCII renderer (ES module)
         ├── index.html
         ├── playground/ about/
@@ -165,39 +157,11 @@ Bootstrap's grid utilities (`col-12 col-md-X col-lg-X`, `row-cols-*`) handle lay
 
 ---
 
-## API Guide Toolbar (`api-guide.js`)
-
-Each demo has a `pages/<demo>/api-guide.js` that injects a fixed bottom toolbar showing which API endpoints the page requires. This is intentional infrastructure for developers who download the ZIP — `cleanHtml()` does **not** strip it.
-
-**How it works:**
-
-1. The host page declares `window.API_ENDPOINTS` before loading the script:
-
-```html
-<script>
-window.API_ENDPOINTS = [
-  { method: 'GET',  path: '/api/products/featured' },
-  { method: 'POST', path: '/api/orders' },
-];
-</script>
-<script src="api-guide.js"></script>        <!-- homepage -->
-<script src="../api-guide.js"></script>     <!-- subpages -->
-```
-
-2. The script (a self-contained IIFE, no dependencies) injects `.ag-bar` (fixed 40 px bottom strip) and `.ag-panel` (expandable endpoint list). CSS uses the `.ag-` prefix to avoid collision with demo styles.
-
-3. Only pages with data-fetching get the toolbar. Static/editorial pages (e.g. `about/`, `story/`) omit it. Each demo covers at most 3 pages (including `index.html`).
-
-**Do not** add `api-guide.js` entries to `cleanHtml()` — the toolbar must survive the ZIP download.
-
----
-
 ## Demo Pages — Key Details
 
 ### 1. Fashion E-Commerce (`pages/fashion-ecommerce/`)
 
 - Brand: **MAISON NOIR** · 4 subpages: womens, mens, accessories, about
-- DesignVault back link class: `.dv-bar` (strip target for `cleanHtml()`)
 - Nav: Bootstrap `navbar-expand-lg sticky-top` with custom `--mn-*` variables
 - Filters on subpages use `nav nav-pills` (not `nav-tabs`) to receive brand pill styling
 - No JavaScript beyond Bootstrap collapse
@@ -205,7 +169,6 @@ window.API_ENDPOINTS = [
 ### 2. SaaS Dashboard (`pages/saas-dashboard/`)
 
 - Brand: **NexusFlow Enterprise** · 4 subpages: analytics, users, orders, settings
-- DesignVault back link class: `.dv-back` (strip target for `cleanHtml()`)
 - Layout: fixed 240 px `.nf-sidebar` (transforms off-screen on mobile, `.open` class toggles it) + `.nf-main`
 - Settings page uses Bootstrap JS tab panels (`data-bs-toggle="tab"`)
 - No charting library — chart bars are pure CSS
@@ -213,7 +176,6 @@ window.API_ENDPOINTS = [
 ### 3. Boutique Brand (`pages/boutique-brand/`)
 
 - Brand: **AURÈLE** · 4 subpages: story, collections, works, contact
-- DesignVault back link class: `.designvault-link` (strip target for `cleanHtml()`)
 - Navbar: `fixed-top`, transparent; gains `.scrolled` class via scroll listener
 - `au-input` inputs have `display: block` — required for `w-100` to work on them
 - `.btn-au-outline-on-dark` variant for buttons on dark backgrounds
@@ -221,8 +183,8 @@ window.API_ENDPOINTS = [
 ### 4. Space Hotel (`pages/space-scifi/`)
 
 - Brand: **ORBITAL** · 4 subpages: rooms, experiences, book, about
-- DesignVault back link class: `.designvault-back` (strip target for `cleanHtml()`)
 - Monospace font everywhere — no Google Fonts loaded
+- Room artwork is hand-written SVG (`images/room-1..3.svg`)
 - `rooms/`: Three cabin tiers (Standard Pod / Observatory Suite / Executive Sphere)
 - `book/`: Booking form with date pickers, room select, guest count; all `<label>` have `for` matching `id`
 - `.nv-hero` has `padding-top: 72px` to compensate for `fixed-top` navbar
@@ -230,7 +192,6 @@ window.API_ENDPOINTS = [
 ### 5. Quill Landing Page (`pages/quill-landing/`)
 
 - Brand: **Quill** · 3 subpages: features, pricing, about
-- DesignVault back link class: `.dv-bar` (strip target for `cleanHtml()`)
 - Palette: `--ql-teal: #0d9488`, `--ql-blue: #0ea5e9`, white background (`--ql-bg: #ffffff`)
 - Google Fonts: Inter only (loaded in homepage; subpages inherit via `../custom.css`)
 - Navbar: `sticky-top` (NOT `fixed-top`) — no padding compensation needed
@@ -241,28 +202,23 @@ window.API_ENDPOINTS = [
 ### 6. GLYPHWAVE (`pages/glyphwave/`)
 
 - Brand: **GLYPHWAVE** · 2 subpages: playground, about
-- DesignVault back link class: `.designvault-back` (strip target for `cleanHtml()`)
 - Palette: `--gw-cyan: #00e5ff`, `--gw-magenta: #ff2d95`, near-black `--gw-bg: #05060a`
 - `ascii-engine.js`: ES module, Three.js (jsDelivr import) renders the 3D scene at
   cols×rows pixel size, then Canvas 2D maps luminance → glyph characters (ASCII pipeline)
 - Hero `#ascii-host` is a full-bleed canvas; CRT scanlines via `.gw-hero::after`,
   glitch title via `.gw-glitch::before/::after` with `data-text`
-- Navbar `fixed-top`; `.navbar-brand` has `margin-left: 135px` to clear the fixed back link
+- Navbar `fixed-top`
 - `playground/`: live controls (shape/ramp/color/cell/glitch/invert) via `engine.setOption()`
 - Engine reads/writes must go through `setOption()`; `cell`/`ramp` trigger `resize()`
 
-### DesignVault back link classes (critical for `cleanHtml()`)
+### DesignVault back link
 
-| Demo | Class |
-|---|---|
-| fashion-ecommerce | `.dv-bar` |
-| saas-dashboard | `.dv-back` |
-| boutique-brand | `.designvault-link` |
-| space-scifi | `.designvault-back` |
-| quill-landing | `.dv-bar` |
-| glyphwave | `.designvault-back` |
+Every demo page has `<a href="…/index.html" class="dv-back">← DesignVault</a>` right after `<body>`.
+Each `custom.css` styles `.dv-back` as a fixed bottom-left pill using that demo's brand variables.
 
-`js/main.js` `cleanHtml()` removes elements with these classes before zipping for download. If you change a back link, update `cleanHtml()` to match.
+### Icons
+
+No emoji. Icons are inline SVG with `class="ui-icon"` (`1em` sized, `stroke="currentColor"`), so they follow the parent's font-size and colour.
 
 ---
 
@@ -280,7 +236,7 @@ docs: update CLAUDE.md with Bootstrap architecture notes
 
 ### Cache Busting
 
-When modifying `css/style.css` or `js/main.js`, update the version query string in `index.html` (e.g. `?v=20260528`) to force browser cache invalidation.
+When modifying `css/style.css`, update the version query string in `index.html` (e.g. `?v=20260528`) to force browser cache invalidation.
 
 ---
 
@@ -295,7 +251,7 @@ When modifying `css/style.css` or `js/main.js`, update the version query string 
 7. **Responsive parity** — Bootstrap grid handles most layout. When adding custom classes, add the matching `@media` blocks in `custom.css` at the same time.
 8. **No minification or bundling** — source files stay human-readable.
 9. **Chinese copy** — the project mixes Traditional Chinese and English. Preserve the tone and register of existing Chinese text when editing nearby sections.
-10. **New demo pages** — go inside `pages/<demo-name>/index.html`. Add the DesignVault back link with the demo's designated class (see table above).
+10. **New demo pages** — go inside `pages/<demo-name>/index.html`. Add the `.dv-back` link and style it in the demo's `custom.css`.
 
 ---
 

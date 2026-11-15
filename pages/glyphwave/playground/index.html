@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../custom.css">
 </head>
 <body>
+    <a href="../../../index.html" class="dv-back">← DesignVault</a>
 
-    <a href="../../../index.html" class="designvault-back">← DesignVault</a>
 
     <div class="gw-lab">
         <div class="gw-lab-stage" id="stage">
@@ -74,13 +74,6 @@
         </aside>
     </div>
 
-    <script>
-    window.API_ENDPOINTS = [
-      { method: 'GET',   path: '/api/render/presets' },
-      { method: 'POST',  path: '/api/render/jobs' },
-    ];
-    </script>
-    <script src="../api-guide.js"></script>
     <script type="module">
     import { AsciiEngine } from '../ascii-engine.js';
     const stage = document.getElementById('stage');

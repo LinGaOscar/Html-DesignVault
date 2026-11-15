@@ -22,7 +22,6 @@
 - Bootstrap 5.3.3（CDN）
 - Three.js 0.161（CDN，僅 glyphwave Demo 使用）
 - Google Fonts（各 Demo 各自載入）
-- 首頁「下載模板」以 JSZip 在瀏覽器端打包；各 Demo 內建 `api-guide.js` 列出預期串接的 API endpoints
 - 部署：GitHub Pages（`.github/workflows/deploy.yml`）
 
 ## 快速開始
@@ -39,7 +38,6 @@ python3 -m http.server 8080
 |---|---|
 | `index.html` | 首頁，列出所有 Demo |
 | `css/style.css` | 首頁全域樣式 |
-| `js/main.js` | 下載 ZIP 邏輯 |
-| `pages/<demo>/` | 各 Demo（`custom.css`、`api-guide.js`、`index.html` 與子頁） |
+| `pages/<demo>/` | 各 Demo（`custom.css`、`index.html` 與子頁） |
 | `docs/` | 開發文件、設計 spec 與計畫 |
 | `.github/workflows/` | GitHub Pages 部署 |

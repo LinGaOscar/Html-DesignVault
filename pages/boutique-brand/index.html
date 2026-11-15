@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="custom.css">
 </head>
 <body>
+    <a href="../../index.html" class="dv-back">← DesignVault</a>
 
-    <!-- DesignVault back link (will be stripped in download) -->
-    <a href="../../index.html" class="designvault-link">← DesignVault</a>
 
     <!-- Fixed Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
@@ -109,7 +108,7 @@
     <!-- Brand Story -->
     <section class="py-5" style="background:var(--au-bg-alt);">
         <div class="container">
-            <div class="row align-items-center g-5">
+            <div class="row align-items-center g-4 g-lg-5">
                 <div class="col-12 col-lg-5">
                     <div class="au-hero-img" style="min-height:400px;"><img src="images/hero.jpg" alt=""></div>
                 </div>
@@ -191,11 +190,5 @@
             document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
         });
     </script>
-    <script>
-    window.API_ENDPOINTS = [
-      { method: 'GET', path: '/api/works/featured' },
-    ];
-    </script>
-    <script src="api-guide.js"></script>
 </body>
 </html>
