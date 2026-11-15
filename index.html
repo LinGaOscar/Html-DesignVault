@@ -3,132 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesignVault — 網頁設計作品集</title>
+    <title>DesignVault — 網頁設計作品集｜LinGaOscar</title>
+    <meta name="description" content="DesignVault 是 LinGaOscar 的前端網頁設計作品集：六個情境、27 個頁面，以 HTML、CSS、原生 JavaScript 與 Bootstrap 手工打造，無框架、無建置流程。">
+    <meta name="author" content="LinGaOscar">
+    <meta name="theme-color" content="#ffffff">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DesignVault — 網頁設計作品集">
+    <meta property="og:description" content="六個情境、27 個頁面的前端設計作品，可線上瀏覽並下載模板。">
+    <meta property="og:image" content="docs/screenshot.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1a1a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23fff' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260528">
+    <link rel="stylesheet" href="css/style.css?v=20261115">
 </head>
 <body>
+    <a href="#works" class="visually-hidden-focusable dv-skip">跳至作品</a>
 
-    <header class="border-bottom py-4">
-        <div class="container d-flex align-items-center justify-content-between">
-            <a href="/" class="logo">DesignVault</a>
-            <span class="small text-muted">精選網頁設計作品展示</span>
+    <header class="dv-header sticky-top border-bottom">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <a href="./" class="logo">DesignVault</a>
+            <nav class="dv-nav d-flex align-items-center gap-3 gap-md-4" aria-label="主要導覽">
+                <a href="#works">作品</a>
+                <a href="#approach">設計理念</a>
+                <a href="#stack">技術</a>
+                <a href="https://github.com/LinGaOscar/Html-DesignVault" target="_blank" rel="noopener" class="d-none d-sm-inline">GitHub ↗</a>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="dv-hero">
             <div class="container">
+                <p class="dv-eyebrow mb-3">前端網頁設計作品集 · 2026</p>
                 <h1 class="dv-hero-title">探索網頁設計<br><em>的各種可能性</em></h1>
-                <p class="small text-muted">五種不同情境，五種獨特風格</p>
+                <p class="dv-lead text-muted">六種情境、六種品牌語彙。從電商、後台到生成藝術，每件作品皆以原生 HTML、CSS 與 JavaScript 手工打造，可線上瀏覽，也可直接下載成模板。</p>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <a href="#works" class="btn btn-dark dv-btn-lg">瀏覽作品</a>
+                    <a href="https://github.com/LinGaOscar/Html-DesignVault" target="_blank" rel="noopener" class="btn btn-outline-dark dv-btn-lg">檢視原始碼</a>
+                </div>
+                <dl class="dv-stats row g-0 border-top mt-5 mb-0">
+                    <div class="col-4 pt-4"><dt>6</dt><dd>設計作品</dd></div>
+                    <div class="col-4 pt-4"><dt>27</dt><dd>完整頁面</dd></div>
+                    <div class="col-4 pt-4"><dt>0</dt><dd>框架與建置步驟</dd></div>
+                </dl>
             </div>
         </section>
 
-        <section class="pb-5">
+        <section id="works" class="dv-section">
             <div class="container">
-                <div class="row g-0 border">
-
-                    <div class="col-12 col-md-6 border-end border-bottom" data-demo="fashion-ecommerce">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/fashion-ecommerce/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">電商</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">時尚電商首頁</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">明亮現代風格，大圖視覺與流暢購物體驗</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/fashion-ecommerce/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('fashion-ecommerce')">下載模板</button>
+                <div class="dv-section-head">
+                    <p class="dv-eyebrow mb-2">Selected Works</p>
+                    <h2 class="dv-section-title">精選作品</h2>
+                </div>
+                <div class="row g-4">
+                    <article class="col-12 col-md-6" data-demo="fashion-ecommerce">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/fashion-ecommerce/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/fashion-ecommerce/index.html" title="MAISON NOIR 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">電商</span>
+                                    <span class="dv-num">01</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">MAISON NOIR</h3>
+                                <p class="small mb-2">時尚電商首頁</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">明亮暖色調的精品電商：大圖視覺、商品分類篩選與流暢的瀏覽動線。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">5 頁</li><li class="dv-tag">Playfair Display</li><li class="dv-tag">Nav Pills 篩選</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/fashion-ecommerce/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('fashion-ecommerce')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="col-12 col-md-6 border-bottom" data-demo="saas-dashboard">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/saas-dashboard/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">SaaS</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">管理儀表板</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">深色主題，數據視覺化與系統化管理介面</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/saas-dashboard/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('saas-dashboard')">下載模板</button>
+                    <article class="col-12 col-md-6" data-demo="saas-dashboard">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/saas-dashboard/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/saas-dashboard/index.html" title="NexusFlow Enterprise 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">SaaS</span>
+                                    <span class="dv-num">02</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">NexusFlow Enterprise</h3>
+                                <p class="small mb-2">管理儀表板</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">深色主題後台：固定側欄、純 CSS 圖表、使用者與訂單管理介面。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">5 頁</li><li class="dv-tag">純 CSS 圖表</li><li class="dv-tag">響應式側欄</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/saas-dashboard/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('saas-dashboard')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="col-12 col-md-6 border-end border-bottom" data-demo="boutique-brand">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/boutique-brand/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">品牌形象</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">精品品牌頁</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">極簡雜誌風，大圖橫幅與細膩排版</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/boutique-brand/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('boutique-brand')">下載模板</button>
+                    <article class="col-12 col-md-6" data-demo="boutique-brand">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/boutique-brand/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/boutique-brand/index.html" title="AURÈLE 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">品牌形象</span>
+                                    <span class="dv-num">03</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">AURÈLE</h3>
+                                <p class="small mb-2">精品品牌頁</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">極簡雜誌風：透明導覽列隨捲動變化，大圖橫幅搭配細膩襯線排版。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">5 頁</li><li class="dv-tag">Cormorant Garamond</li><li class="dv-tag">捲動互動</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/boutique-brand/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('boutique-brand')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="col-12 col-md-6 border-bottom" data-demo="space-scifi">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/space-scifi/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">旅遊 / 飯店</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">太空主題飯店</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">深宇宙暗色調，未來感軌道飯店住宿體驗</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/space-scifi/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('space-scifi')">下載模板</button>
+                    <article class="col-12 col-md-6" data-demo="space-scifi">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/space-scifi/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/space-scifi/index.html" title="ORBITAL 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">旅遊 / 飯店</span>
+                                    <span class="dv-num">04</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">ORBITAL</h3>
+                                <p class="small mb-2">太空主題飯店</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">深宇宙暗色調與等寬字體，含艙房分級與具無障礙標籤的訂房表單。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">5 頁</li><li class="dv-tag">等寬字體</li><li class="dv-tag">訂房表單</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/space-scifi/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('space-scifi')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="col-12 col-md-6 border-end" data-demo="quill-landing">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/quill-landing/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">Landing Page</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">AI 寫作工具行銷頁</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">白底清爽 teal 配色，含定價、功能、關於子頁</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/quill-landing/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('quill-landing')">下載模板</button>
+                    <article class="col-12 col-md-6" data-demo="quill-landing">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/quill-landing/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/quill-landing/index.html" title="Quill 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">Landing Page</span>
+                                    <span class="dv-num">05</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">Quill</h3>
+                                <p class="small mb-2">AI 寫作工具行銷頁</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">白底 teal 配色的 SaaS 行銷頁：編輯器模擬畫面、定價方案與 FAQ。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">4 頁</li><li class="dv-tag">定價切換</li><li class="dv-tag">Accordion FAQ</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/quill-landing/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('quill-landing')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="col-12 col-md-6" data-demo="glyphwave">
-                        <div class="dv-preview">
-                            <iframe class="dv-frame" src="pages/glyphwave/index.html" loading="lazy" scrolling="no" tabindex="-1" aria-hidden="true"></iframe>
-                        </div>
-                        <div class="p-4 d-flex flex-column">
-                            <span class="text-uppercase small text-muted mb-2" style="letter-spacing:1.2px">生成藝術</span>
-                            <h3 class="fs-6 fw-normal mb-2" style="letter-spacing:-0.2px">文字影像生成工作室</h3>
-                            <p class="small text-muted flex-grow-1" style="line-height:1.65">Three.js 3D 場景即時翻譯成字元矩陣，霓虹 glitch 賽博風</p>
-                            <div class="d-flex gap-2 mt-auto" style="margin-top:20px">
-                                <a href="pages/glyphwave/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
-                                <button class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('glyphwave')">下載模板</button>
+                    <article class="col-12 col-md-6" data-demo="glyphwave">
+                        <div class="dv-card h-100 d-flex flex-column">
+                            <a href="pages/glyphwave/index.html" class="dv-preview" tabindex="-1" aria-hidden="true">
+                                <iframe class="dv-frame" src="pages/glyphwave/index.html" title="GLYPHWAVE 預覽" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+                            </a>
+                            <div class="p-4 d-flex flex-column flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                    <span class="dv-eyebrow">生成藝術</span>
+                                    <span class="dv-num">06</span>
+                                </div>
+                                <h3 class="dv-card-title mb-1">GLYPHWAVE</h3>
+                                <p class="small mb-2">文字影像生成工作室</p>
+                                <p class="dv-card-desc small text-muted flex-grow-1">Three.js 3D 場景即時轉譯為字元矩陣，霓虹 glitch 風格與即時參數控制台。</p>
+                                <ul class="dv-tags list-unstyled d-flex flex-wrap gap-2 mb-4"><li class="dv-tag">3 頁</li><li class="dv-tag">Three.js</li><li class="dv-tag">Canvas 2D</li></ul>
+                                <div class="d-flex gap-2 mt-auto">
+                                    <a href="pages/glyphwave/index.html" class="btn btn-outline-dark btn-sm flex-fill">前往範例</a>
+                                    <button type="button" class="btn btn-dark btn-sm flex-fill btn-dl" onclick="downloadTemplate('glyphwave')">下載模板</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
                 </div>
             </div>
         </section>
+
+        <section id="approach" class="dv-section dv-section-alt">
+            <div class="container">
+                <div class="dv-section-head">
+                    <p class="dv-eyebrow mb-2">Approach</p>
+                    <h2 class="dv-section-title">設計理念</h2>
+                </div>
+                <div class="row g-4 g-lg-5">
+                    <div class="col-12 col-md-4">
+                        <span class="dv-num">01</span>
+                        <h3 class="dv-card-title mt-2 mb-2">品牌先行</h3>
+                        <p class="small text-muted dv-card-desc mb-0">每件作品都有獨立的品牌設定——色彩、字體與語氣以 CSS 變數集中管理，風格一致且易於替換。</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="dv-num">02</span>
+                        <h3 class="dv-card-title mt-2 mb-2">輕量可維護</h3>
+                        <p class="small text-muted dv-card-desc mb-0">不依賴框架與建置工具，原始碼保持可讀；Bootstrap 處理格線，自訂樣式只補足品牌所需。</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <span class="dv-num">03</span>
+                        <h3 class="dv-card-title mt-2 mb-2">可直接落地</h3>
+                        <p class="small text-muted dv-card-desc mb-0">全站響應式，模板一鍵打包下載，並內建 API 指引工具列，標示每頁預期串接的後端端點。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stack" class="dv-section">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-4">
+                        <p class="dv-eyebrow mb-2">Stack</p>
+                        <h2 class="dv-section-title mb-0">技術</h2>
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <ul class="dv-tags dv-tags-lg list-unstyled d-flex flex-wrap gap-2 mb-0">
+                            <li class="dv-tag">HTML5</li>
+                            <li class="dv-tag">CSS3 / Custom Properties</li>
+                            <li class="dv-tag">Vanilla JavaScript</li>
+                            <li class="dv-tag">Bootstrap 5.3</li>
+                            <li class="dv-tag">Three.js</li>
+                            <li class="dv-tag">Canvas 2D</li>
+                            <li class="dv-tag">響應式設計</li>
+                            <li class="dv-tag">JSZip</li>
+                            <li class="dv-tag">GitHub Pages / Actions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dv-cta">
+            <div class="container text-center">
+                <h2 class="dv-hero-title mb-3">想看更多細節？</h2>
+                <p class="dv-lead text-muted mx-auto mb-4">所有原始碼皆公開於 GitHub，歡迎瀏覽、下載或提出建議。</p>
+                <a href="https://github.com/LinGaOscar" target="_blank" rel="noopener" class="btn btn-dark dv-btn-lg">前往 GitHub ↗</a>
+            </div>
+        </section>
     </main>
 
-    <footer class="border-top py-3">
-        <div class="container d-flex justify-content-between small">
-            <span>DesignVault</span>
+    <footer class="border-top py-4">
+        <div class="container d-flex flex-wrap justify-content-between gap-2 small">
+            <span>DesignVault — 精選網頁設計作品展示</span>
             <span class="text-muted">© 2026 LinGaOscar</span>
         </div>
     </footer>

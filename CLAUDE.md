@@ -14,7 +14,7 @@ The Chinese tagline "精選網頁設計作品展示" means "Premium Web Design P
 
 ```
 DesignVault/
-├── index.html                        # Landing page — lists all five demos
+├── index.html                        # Portfolio landing — hero, works grid, approach, stack, CTA
 ├── css/
 │   └── style.css                     # Global styles for index.html only
 ├── js/
@@ -134,10 +134,10 @@ Each `custom.css` follows this order:
 **Global variables (index.html / css/style.css):**
 ```css
 --bg: #ffffff
+--bg-alt: #f7f7f5
 --text: #1a1a1a
---accent: #2563eb
---border: #e5e7eb
---radius: 12px
+--muted: #c8c8c8
+--border: #e8e8e8
 ```
 
 **Per-demo brand variables (in each demo's `custom.css :root`):**
